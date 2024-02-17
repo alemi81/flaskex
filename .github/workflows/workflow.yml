@@ -17,8 +17,11 @@ jobs:
     - name: Clone Repo
       uses: actions/checkout@v3
     
-    - name: Check docker 
-      run: docker version
-      
-      
-      # run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Docker Build
+      run: docker build . --tag ${{ secrets.DOCKERHUB_USERNAME }}/flaskex:${{ github.sha }}
+
+    - name: Docker Login
+      run: docker login  -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+
+    - name: Docker Push
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/flaskex:${{ github.sha }}
