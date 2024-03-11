@@ -1,0 +1,13 @@
+replicas: 2
+resource:
+  request:
+    cpu: "100m"
+    memory: "128Mi"
+image: "ikambarov/flaskex"
+tag: "6a8d426a9e9db4354cd03af03e971b63f29760eb"
+port: 5000
+serviceType: "LoadBalancer"
+servicePort: 80
+hpaMax: 10
+hpaMin: 2
+hpaTargetCPU: 75
