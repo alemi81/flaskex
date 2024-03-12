@@ -53,4 +53,7 @@ jobs:
 
     - name: Deploy App
       run: helm upgrade --install myapp flaskex-chart/
+
+    - name: command
+      run: kubectl get pod
     
