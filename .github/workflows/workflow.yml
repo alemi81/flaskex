@@ -50,5 +50,6 @@ jobs:
         token:      ${{ secrets.K8S_SA_TOKEN }}
         namespace:  default
 
+
     - name: Deploy App
       run: helm upgrade --install myapp flaskex-chart/
