@@ -35,3 +35,14 @@ jobs:
 
     - name: Docker Push
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/flaskex:${{ github.sha }}
+
+    - name: Setup KUBECONFIG
+      uses: vbem/kubeconfig4sa@v1
+      with:
+        server:     ${{ secrets.K8S_SERVER }}
+        ca-base64:  ${{ secrets.K8S_CA_BASE64 }}
+        token:      ${{ secrets.K8S_SA_TOKEN }}
+        namespace:  MYNS
+
+    - name: Test kubecfg
+      run: kubectl get nodes 
