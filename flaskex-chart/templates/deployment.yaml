@@ -16,11 +16,11 @@ spec:
         app: {{ .Release.Name }}-deploy
     spec:
       containers:
-      - image: {{ .Values.image }}:{{ .Values.tag }}
+      - image: {{ .values.image }}:{{ .values.tag }}
         name: flaskex
         resources:
           requests:
-            memory: {{ .Values.resource.request.memory }}
-            cpu: {{ .Values.resource.request.cpu }}
+            memory: {{ .values.resource.request.memory }}
+            cpu: {{ .values.resource.request.cpu }}
         ports:
-        - containerPort: {{ .Values.port }}
+        - containerPort: {{ .values.port }}
