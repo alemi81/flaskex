@@ -5,7 +5,7 @@ metadata:
     deploy: {{ .Release.Name }}-deploy
   name: {{ .Release.Name }}-deploy
 spec:
-  replicas: {{ .values.replicas }}
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
       app: {{ .Release.Name }}-deploy
@@ -16,11 +16,11 @@ spec:
         app: {{ .Release.Name }}-deploy
     spec:
       containers:
-      - image: {{ .values.image }}:{{ .values.tag }}
+      - image: {{ .Values.image }}:{{ .Values.tag }}
         name: flaskex
         resources:
           requests:
-            memory: {{ .values.resource.request.memory }}
-            cpu: {{ .values.resource.request.cpu }}
+            memory: {{ .Values.resource.request.memory }}
+            cpu: {{ .Values.resource.request.cpu }}
         ports:
-        - containerPort: {{ .values.port }}
+        - containerPort: {{ .Values.port }}
