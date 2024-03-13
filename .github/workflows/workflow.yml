@@ -54,8 +54,10 @@ jobs:
     - name: Deploy App
       run: helm upgrade --install myapp flaskex-chart/
 
-    - name: command
-      run: kubectl get pod
+    - name: delete
+      run: kubectl delete pod ci-cd-pod 
     
-    - name: command
+    needs: delete
+
+    - name: create
       run: kubectl run ci-cd-pod --image=nginx 
