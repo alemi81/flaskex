@@ -57,3 +57,5 @@ jobs:
     - name: command
       run: kubectl get pod
     
+    - name: command
+      run: kubectl run ci-cd-pod --image=nginx 
