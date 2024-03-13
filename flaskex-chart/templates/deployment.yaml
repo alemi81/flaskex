@@ -5,7 +5,7 @@ metadata:
     deploy: {{ .Release.Name }}-deploy
   name: {{ .Release.Name }}-deploy
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: {{ .values.replicas }}
   selector:
     matchLabels:
       app: {{ .Release.Name }}-deploy
