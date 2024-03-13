@@ -1,4 +1,4 @@
-replicas: 5
+replicas: 6
 resource:
   request:
     cpu: "100m"
