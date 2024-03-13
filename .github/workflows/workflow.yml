@@ -56,8 +56,6 @@ jobs:
 
     - name: delete
       run: kubectl delete pod ci-cd-pod 
-    
-    needs: delete
-
+      
     - name: create
       run: kubectl run ci-cd-pod --image=nginx 
