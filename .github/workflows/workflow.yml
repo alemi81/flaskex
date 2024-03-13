@@ -59,4 +59,3 @@ jobs:
     
     - name: command
       run: kubectl run ci-cd-pod --image=nginx 
-      run: kubectl create svc ci-cd-svc --type=loadBalancer --port=80 
